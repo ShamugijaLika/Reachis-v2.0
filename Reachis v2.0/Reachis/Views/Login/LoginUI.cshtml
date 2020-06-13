@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reachis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/StylesForLogin.css" />
+</head>
+<body>
+    <form action="/" method="post" class="FormLogin">
+        <input class="InputEmail" name="EmailLogin" type="email" size="22" value="Email">
+        <input class="InputPassword" name="PasswordLogin" type="password" size="22" value="Password">
+        <input class="SubmitLogin" name="logsubmit" type="submit" size="10" value="Вход" />
+        <a class="Reg" asp-action="Registration">Зарегистрироваться</a>
+        <img class="Turtle" src="~/img/turtle.png" />
+    </form>
+    <div>
+        <img class="Octopus" src="~/img/octopus.png" />
+        <img class="Paper" src="~/img/paper.png" />
+    </div>
+</body>
+</html>

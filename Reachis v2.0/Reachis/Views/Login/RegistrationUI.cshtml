@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reachis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/StylesForLogin.css" />
+</head>
+<body>
+    <form action="/" method="post" class="FormRegistration">
+        <div class="text_for_input">
+            <text class="NicknameReg">Никнейм</text>
+            <text class="EmailReg">Почта</text>
+            <text class="PasswordReg">Пароль</text>
+        </div>
+        <input class="RegNickname" name="EmailReg" type="text" size="27">
+        <input class="RegEmail" name="EmailReg" type="email" size="27">
+        <input class="RegPassword" name="PasswordReg" type="password" size="27">
+        <input class="SubmitReg" name="regsubmit" type="submit" size="20" value="Регистрация" />
+
+    </form>
+    <div>
+        <img class="PaperReg" src="~/img/paper.png" />
+        <img class="TurtleReg" src="~/img/turtle.png" />
+    </div>
+    <img class="OctopusReg" src="~/img/octopus.png" />
+
+</body>
+</html>

@@ -62,8 +62,8 @@ namespace Reachis
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
+                    pattern: "{controller=Login}/{action=LogIn}/{id?}");
+                //endpoints.MapRazorPages();
             });
         }
     }
