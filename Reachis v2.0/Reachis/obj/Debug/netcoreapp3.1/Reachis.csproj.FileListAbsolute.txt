@@ -63,7 +63,6 @@ C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcorea
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.TagHelpers.input.cache
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.TagHelpers.output.cache
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.RazorCoreGenerate.cache
-C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -154,5 +153,5 @@ C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\bin\Debug\netcorea
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.csproj.CoreCompileInputs.cache
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Login\LoginUI.cshtml.g.cs
-C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Login\RegistrationUI.cshtml.g.cs
+C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Register\Register.cshtml.g.cs
+C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs

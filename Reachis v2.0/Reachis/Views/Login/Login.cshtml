@@ -9,14 +9,14 @@
     <title>@ViewData["Title"] - Reachis</title>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/StylesForLogin.css" />
+    <link rel="stylesheet" href="~/css/StylesForLoginAndRegister.css" />
 </head>
 <body>
-    <form action="/" method="post" class="FormLogin">
-        <input class="InputEmail" name="EmailLogin" type="email" size="22" value="Email">
-        <input class="InputPassword" name="PasswordLogin" type="password" size="22" value="Password">
-        <input class="SubmitLogin" name="logsubmit" type="submit" size="10" value="Вход" />
-        <a class="Reg" asp-action="Registration">Зарегистрироваться</a>
+    <form method="post" class="FormLogin">
+        <input class="InputEmail" type="email" size="20" value="Email">
+        <input class="InputPassword" type="password" size="20" value="Password">
+        <input class="SubmitLogin"  type="submit" size="10" value="Вход" />
+        <a class="Reg" asp-controller="Register" asp-action="Register">Зарегистрироваться</a>
         <img class="Turtle" src="~/img/turtle.png" />
     </form>
     <div>

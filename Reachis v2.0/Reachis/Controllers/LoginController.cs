@@ -11,15 +11,9 @@ namespace Reachis.Controllers
 {
     public class LoginController : Controller
     {
-        public ViewResult LogIn()
+        public IActionResult Login()
         {
-            return View("LoginUI");
-        }
-
-        [HttpGet]
-        public ViewResult Registration()
-        {
-            return View("RegistrationUI");
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
