@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_LayoutLog";
+}
+@model Reachis.Models.RegisterViewModel
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reachis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/StylesForLoginAndRegister.css" />
+</head>
+<body>
+    <form method="post" class="FormRegistration" asp-controller="Account" asp-action="Register">
+        <div class="text_for_input">
+            <text class="NicknameReg">Никнейм</text>
+            <text class="EmailReg">Почта</text>
+            <text class="PasswordReg">Пароль</text>
+        </div>
+        <input class="RegNickname" asp-for="UserName" type="text" size="27">
+        <input class="RegEmail" asp-for="Email" type="email" size="27">
+        <input class="RegPassword" asp-for="Password" type="password" size="27">
+        <input class="SubmitReg" type="submit" size="20" value="Регистрация" />
+    </form>
+    <div>
+        <img class="PaperReg" src="~/img/paper.png" />
+        <img class="TurtleReg" src="~/img/turtle.png" />
+    </div>
+    <img class="OctopusReg" src="~/img/octopus.png" />
+</body>
+</html>

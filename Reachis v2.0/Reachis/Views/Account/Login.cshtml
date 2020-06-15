@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_LayoutLog";
+}
+@model Reachis.Models.LoginViewModel
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reachis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/StylesForLoginAndRegister.css" />
+</head>
+<body>
+    <form method="post" class="FormLogin">
+        <input class="InputEmail" asp-for="Email" type="email" size="20" value="Email">
+        <input class="InputPassword" asp-for="Password" type="password" size="20" value="Password">
+        <div class="RememberCheck"> <input type="checkbox" asp-for="RememberMe"/> Запомнить</div>
+        <input class="SubmitLogin"  type="submit" size="10" value="Вход" />
+        <a class="Reg" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
+        <img class="Turtle" src="~/img/turtle.png" />
+    </form>
+    <div>
+        <img class="Octopus" src="~/img/octopus.png" />
+        <img class="Paper" src="~/img/paper.png" />
+    </div>
+</body>
+</html>
