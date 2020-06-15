@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Reachis.Migrations
 {
-    public partial class Frost1 : Migration
+    public partial class Frog1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -153,7 +153,7 @@ namespace Reachis.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PlannersTable",
+                name: "Planners",
                 columns: table => new
                 {
                     PlannerId = table.Column<int>(nullable: false)
@@ -166,14 +166,71 @@ namespace Reachis.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PlannersTable", x => x.PlannerId);
+                    table.PrimaryKey("PK_Planners", x => x.PlannerId);
                     table.ForeignKey(
-                        name: "FK_PlannersTable_AspNetUsers_userId",
+                        name: "FK_Planners_AspNetUsers_userId",
                         column: x => x.userId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Areas",
+                columns: table => new
+                {
+                    AreaId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AreaName = table.Column<string>(nullable: true),
+                    AreaColor = table.Column<string>(nullable: true),
+                    AreaTimeInMin = table.Column<int>(nullable: false),
+                    PlannerId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Areas", x => x.AreaId);
+                    table.ForeignKey(
+                        name: "FK_Areas_Planners_PlannerId",
+                        column: x => x.PlannerId,
+                        principalTable: "Planners",
+                        principalColumn: "PlannerId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tasks",
+                columns: table => new
+                {
+                    TaskId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TaskDesc = table.Column<string>(nullable: true),
+                    DayToDay = table.Column<string>(nullable: true),
+                    TimeInMin = table.Column<int>(nullable: false),
+                    Check = table.Column<int>(nullable: false),
+                    PlannerId = table.Column<int>(nullable: true),
+                    AreaId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tasks", x => x.TaskId);
+                    table.ForeignKey(
+                        name: "FK_Tasks_Areas_AreaId",
+                        column: x => x.AreaId,
+                        principalTable: "Areas",
+                        principalColumn: "AreaId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Tasks_Planners_PlannerId",
+                        column: x => x.PlannerId,
+                        principalTable: "Planners",
+                        principalColumn: "PlannerId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Areas_PlannerId",
+                table: "Areas",
+                column: "PlannerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -215,9 +272,19 @@ namespace Reachis.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PlannersTable_userId",
-                table: "PlannersTable",
+                name: "IX_Planners_userId",
+                table: "Planners",
                 column: "userId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tasks_AreaId",
+                table: "Tasks",
+                column: "AreaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tasks_PlannerId",
+                table: "Tasks",
+                column: "PlannerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -238,10 +305,16 @@ namespace Reachis.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "PlannersTable");
+                name: "Tasks");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Areas");
+
+            migrationBuilder.DropTable(
+                name: "Planners");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

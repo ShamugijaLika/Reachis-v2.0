@@ -15,8 +15,8 @@ namespace Reachis.Models
         public DateTime EndDday { get; set; }
         public string ColorPlanner { get; set; }
         public virtual ApplicationUser user { get; set; }
-        public virtual ICollection<Area> Areas { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; }
+        public ICollection<Area> Areas { get; set; }
+        public ICollection<Task> Tasks { get; set; }
 
     }
 }

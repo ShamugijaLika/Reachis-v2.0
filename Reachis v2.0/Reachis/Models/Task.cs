@@ -13,5 +13,8 @@ namespace Reachis.Models
         public string DayToDay { get; set; }
         public int TimeInMin { get; set; }
         public CheckedEnum Check { get; set; }
+        public Planner planner { get; set; }
+        public Area area { get; set; }
+
     }
 }

@@ -238,7 +238,7 @@ namespace Reachis.Migrations
 
                     b.HasIndex("PlannerId");
 
-                    b.ToTable("Area");
+                    b.ToTable("Areas");
                 });
 
             modelBuilder.Entity("Reachis.Models.Planner", b =>
@@ -267,7 +267,7 @@ namespace Reachis.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("PlannersTable");
+                    b.ToTable("Planners");
                 });
 
             modelBuilder.Entity("Reachis.Models.Task", b =>
@@ -301,7 +301,7 @@ namespace Reachis.Migrations
 
                     b.HasIndex("PlannerId");
 
-                    b.ToTable("Task");
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -371,11 +371,11 @@ namespace Reachis.Migrations
 
             modelBuilder.Entity("Reachis.Models.Task", b =>
                 {
-                    b.HasOne("Reachis.Models.Area", null)
+                    b.HasOne("Reachis.Models.Area", "area")
                         .WithMany("Tasks")
                         .HasForeignKey("AreaId");
 
-                    b.HasOne("Reachis.Models.Planner", null)
+                    b.HasOne("Reachis.Models.Planner", "planner")
                         .WithMany("Tasks")
                         .HasForeignKey("PlannerId");
                 });
