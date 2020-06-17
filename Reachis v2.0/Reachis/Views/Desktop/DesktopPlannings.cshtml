@@ -2,9 +2,9 @@
 @{
     Layout = null;
 }
+@model Reachis.Models.PlannerAddViewModel
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -12,9 +12,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/StyleForDesktop.css" />
-
 </head>
 <body>
+    <article class="Menu">
+        <button class="BtnProfile">Профиль</button>
+        <p style="margin-top: 0.6em; margin-bottom: 0em;"></p>
+        <button class="BtnPlannings" asp-action="Plannings">Планинги</button>
+        <img src="~/img/TurtleHint.svg" class="TurtleHint" />
+        <form method="post" asp-controller="Account" asp-action="Logout">
+            <button class="BtnLogout" type="submit"></button>
+        </form>
+    </article>
+    <section class="Plannings">
+        <div class="BackPlanning"></div>
 
+        <button class="BtnIconPlusPlanning" id="openDialog"></button>
+        <dialog class="BackPannelPlus">
+            <form method="post" asp-action="Create">
+                <div class="text_for_input">
+                    <text class="PlanningAddName">Название планнера</text>
+                    <text class="PlanningAddDstart">Дата начала</text>
+                    <text class="PalnningAddDend">Дата завершения</text>
+                </div>
+                <input class="TbNamePlanning" asp-for="PlanName" type="text" size="27">
+                <input class="TbStartPlanning" asp-for="Startday" type="date" size="27">
+                <input class="TbEndPlanning" asp-for="Endday" type="date" size="27">
+                <div class="BtnsColors">
+
+                </div>
+                <button class="SubmitAdd" type="submit" size="20">Создать</button>
+                <img src="~/img/PlannerBook.svg" class="PlannerBookImg"/>
+            </form>
+        </dialog>
+    </section>
 </body>
 </html>
+
+<script>
+    var dialog = document.querySelector('dialog');
+    document.querySelector('#openDialog').onclick = function () {
+        dialog.show(); // Показываем диалоговое окно
+    }
+</script>

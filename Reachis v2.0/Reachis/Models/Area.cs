@@ -11,7 +11,7 @@ namespace Reachis.Models
         public string AreaName { get; set; }
         public string AreaColor { get; set; }
         public int AreaTimeInMin { get; set; }
-        public virtual Planner planner { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; }
+        public Planner planner { get; set; }
+        public ICollection<Task> Tasks { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using Reachis.Models;
 namespace Reachis.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200615134701_Forst2")]
-    partial class Forst2
+    [Migration("20200615191433_Frog1")]
+    partial class Frog1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -217,6 +217,32 @@ namespace Reachis.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Reachis.Models.Area", b =>
+                {
+                    b.Property<int>("AreaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AreaColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AreaName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AreaTimeInMin")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PlannerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AreaId");
+
+                    b.HasIndex("PlannerId");
+
+                    b.ToTable("Areas");
+                });
+
             modelBuilder.Entity("Reachis.Models.Planner", b =>
                 {
                     b.Property<int>("PlannerId")
@@ -243,7 +269,41 @@ namespace Reachis.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("PlannersTable");
+                    b.ToTable("Planners");
+                });
+
+            modelBuilder.Entity("Reachis.Models.Task", b =>
+                {
+                    b.Property<int>("TaskId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AreaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Check")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DayToDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PlannerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TaskDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TimeInMin")
+                        .HasColumnType("int");
+
+                    b.HasKey("TaskId");
+
+                    b.HasIndex("AreaId");
+
+                    b.HasIndex("PlannerId");
+
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -297,11 +357,29 @@ namespace Reachis.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Reachis.Models.Area", b =>
+                {
+                    b.HasOne("Reachis.Models.Planner", "planner")
+                        .WithMany("Areas")
+                        .HasForeignKey("PlannerId");
+                });
+
             modelBuilder.Entity("Reachis.Models.Planner", b =>
                 {
                     b.HasOne("Reachis.Models.ApplicationUser", "user")
                         .WithMany("Planners")
                         .HasForeignKey("userId");
+                });
+
+            modelBuilder.Entity("Reachis.Models.Task", b =>
+                {
+                    b.HasOne("Reachis.Models.Area", "area")
+                        .WithMany("Tasks")
+                        .HasForeignKey("AreaId");
+
+                    b.HasOne("Reachis.Models.Planner", "planner")
+                        .WithMany("Tasks")
+                        .HasForeignKey("PlannerId");
                 });
 #pragma warning restore 612, 618
         }

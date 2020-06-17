@@ -22,14 +22,12 @@ namespace Reachis
         {
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDbContext<DataContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
             services.AddControllersWithViews();
+            //services.AddSingleton<IPlannerRepository, MockPlannerRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

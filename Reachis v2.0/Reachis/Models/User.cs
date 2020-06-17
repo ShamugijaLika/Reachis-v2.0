@@ -6,8 +6,8 @@ namespace Reachis.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        //public ApplicationUser() { }
-        public virtual ICollection<Planner> Planners { get; set; }
+        public static object Identity { get; internal set; }
+        public ICollection<Planner> Planners { get; set; }
 
     }
     

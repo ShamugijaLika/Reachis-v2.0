@@ -1,2 +1,182 @@
 ﻿body {
+    background: #E5E5E5;
+    font-family: 'Vollkorn', serif;
+}
+
+.Menu {
+    position: absolute;
+    width: 489.77px;
+    height: 713px;
+    left: 194px;
+    top: 36px;
+    background: #FBCA9E;
+    border-radius: 53px 0px 0px 53px;
+}
+:focus {
+    outline-style: none;
+    outline-width: 0px !important;
+    outline-color: none !important;
+}
+
+.BtnProfile {
+    width: 300.68px;
+    height: 152.96px;
+    background: #FBCA9E;
+    box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 55px 55px 0px 0px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.25);
+    border: none;
+}
+.BtnPlannings {
+    width: 300.68px;
+    height: 155.43px;
+    background: #FBCA9E;
+    box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.25);
+    border: none;
+}
+.TurtleHint {
+    position: absolute;
+    width: 307.97px;
+    height: 216.92px;
+    left: 24.7px;
+    top: 481.91px;
+}
+.BackPlanning {
+    position: absolute;
+    width: 900.32px;
+    height: 713px;
+    left: 494.68px;
+    top: 36px;
+    background: #FBF8ED;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 52px;
+}
+
+.BtnIconPlusPlanning {
+    position: absolute;
+    width: 68.14px;
+    height: 57.57px;
+    left: 1287.68px;
+    top: 667.58px;
+    border-radius: 50%;
+    background-image: url(/img/ButtonAddProject.svg);
+    background-position: center;
+    
+}
+.BtnLogout {
+    position: absolute;
+    width: 63px;
+    height: 63px;
+    left: 1250px;
+    top: 645px;
+    background-image: url(/img/LogOutButton.svg);
+    background-color: #E5E5E5;
+    background-position: center;
+    border: none;
+}
+.dialog {
+    padding: 0;
+    border: 0;
+    border-radius: 0.6rem;
+}
+
+.BackPannelPlus {
+    position: absolute;
+    width: 900.32px;
+    height: 713px;
+    left: 337.68px;
+    top: 36px;
+    background: #FBF8ED;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 52px;
+    border:none;
+}
+.text_for_input {
+    font-size: 18px;
+    line-height: 27px;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.79);
+}
+.PlanningAddName {
+    position: absolute;
+    width: 240px;
+    height: 34px;
+    left: 171.32px;
+    top: 146px;
+}
+.PlanningAddDstart {
+    position: absolute;
+    width: 240px;
+    height: 34px;
+    left: 171.32px;
+    top: 282px;
+}
+.PalnningAddDend {
+    position: absolute;
+    width: 240px;
+    height: 34px;
+    left: 171.32px;
+    top: 418px;
+}
+
+.TbNamePlanning {
+    position: absolute;
+    width: 251px;
+    height: 52px;
+    left: 171.32px;
+    top: 180px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 43px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.TbStartPlanning {
+    position: absolute;
+    width: 251px;
+    height: 52px;
+    left: 171.32px;
+    top: 316px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 43px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.TbEndPlanning {
+    position: absolute;
+    width: 251px;
+    height: 52px;
+    left: 171.32px;
+    top: 452px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 43px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.SubmitAdd {
+    position: absolute;
+    width: 208px;
+    height: 50px;
+    left: 346px;
+    top: 589px;
+    background: #FBCA9E;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 43px;
+}
+.PlannerBookImg {
+    position: absolute;
+    width: 199px;
+    height: 235px;
+    left: 554.32px;
+    top: 224px;
 }
