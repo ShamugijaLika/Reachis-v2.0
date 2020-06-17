@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -15,6 +14,18 @@
 
 </head>
 <body>
-
+    <article class="Menu">
+        <button class="BtnProfile">Профиль</button>
+        <p style="margin-top: 0.6em; margin-bottom: 0em;"></p>
+        <button class="BtnPlannings" asp-action="Plannings">Планинги</button>
+        <img src="~/img/TurtleHint.svg" class="TurtleHint" />
+        <form method="post" asp-controller="Account" asp-action="Logout">
+            <button class="BtnLogout" type="submit"></button>
+        </form>
+    </article>
+    <section class="Plannings">
+        <div class="BackPlanning"></div>
+        <button class="BtnIconPlusPlanning"></button>
+    </section>
 </body>
 </html>

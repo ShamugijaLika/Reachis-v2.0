@@ -1,3 +1,80 @@
 ﻿body {
     background: #E5E5E5;
+    font-family: 'Vollkorn', serif;
+}
+
+.Menu {
+    position: absolute;
+    width: 489.77px;
+    height: 713px;
+    left: 194px;
+    top: 36px;
+    background: #FBCA9E;
+    border-radius: 53px 0px 0px 53px;
+}
+:focus {
+    outline-style: none;
+    outline-width: 0px !important;
+    outline-color: none !important;
+}
+
+.BtnProfile {
+    width: 300.68px;
+    height: 152.96px;
+    background: #FBCA9E;
+    box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 55px 55px 0px 0px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.25);
+    border: none;
+}
+.BtnPlannings {
+    width: 300.68px;
+    height: 155.43px;
+    background: #FBCA9E;
+    box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.25);
+    border: none;
+}
+.TurtleHint {
+    position: absolute;
+    width: 307.97px;
+    height: 216.92px;
+    left: 24.7px;
+    top: 481.91px;
+}
+.BackPlanning {
+    position: absolute;
+    width: 900.32px;
+    height: 713px;
+    left: 494.68px;
+    top: 36px;
+    background: #FBF8ED;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 52px;
+}
+
+.BtnIconPlusPlanning {
+    position: absolute;
+    width: 68.14px;
+    height: 57.57px;
+    left: 1287.68px;
+    top: 667.58px;
+    border-radius: 50%;
+    background-image: url(/img/ButtonAddProject.svg);
+    background-position: center;
+    
+}
+.BtnLogout {
+    position: absolute;
+    width: 63px;
+    height: 63px;
+    left: 1250px;
+    top: 645px;
+    background-image: url(/img/LogOutButton.svg);
+    background-color: #E5E5E5;
+    background-position: center;
+    border: none;
 }

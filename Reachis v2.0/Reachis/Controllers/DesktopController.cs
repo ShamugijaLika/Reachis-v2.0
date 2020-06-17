@@ -9,7 +9,7 @@ namespace Reachis.Controllers
         {
             //Проверем, залогинился ли пользователь, если нет, тогда отправляем на страницу
             if (!HttpContext.User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
-            return View("DesctopPlannings");
+            return View("DesktopPlannings");
         }
     }
 }

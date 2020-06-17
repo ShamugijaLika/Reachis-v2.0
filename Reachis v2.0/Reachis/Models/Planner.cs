@@ -17,6 +17,15 @@ namespace Reachis.Models
         public virtual ApplicationUser user { get; set; }
         public ICollection<Area> Areas { get; set; }
         public ICollection<Task> Tasks { get; set; }
+        public ICollection<Tab> Tabs { get; set; }
 
+    }
+
+    public class Tab
+    {
+        public int TabId { get; set; }
+        public string urlTab { get; set; }
+        public Planner planner { get; set; }
+        public bool checkTab { get; set; }
     }
 }

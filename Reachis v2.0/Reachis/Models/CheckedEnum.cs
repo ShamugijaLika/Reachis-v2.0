@@ -7,6 +7,9 @@ namespace Reachis.Models
 {
     public enum CheckedEnum
     {
-
+        BulletScheduled = 0,
+        BulletComplete = 1,
+        BulletNotComplite = 2,
+        BulletMoved = 3
     }
 }
