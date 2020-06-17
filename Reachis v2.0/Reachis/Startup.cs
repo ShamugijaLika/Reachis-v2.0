@@ -27,6 +27,7 @@ namespace Reachis
                 .AddEntityFrameworkStores<ApplicationContext>();
 
             services.AddControllersWithViews();
+            //services.AddSingleton<IPlannerRepository, MockPlannerRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

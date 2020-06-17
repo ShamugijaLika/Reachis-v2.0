@@ -150,3 +150,4 @@ C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\bin\Debug\netcorea
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.csproj.CoreCompileInputs.cache
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Reachis.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Desktop\DesktopPlannings.cshtml.g.cs
+C:\Users\scham\source\repos\Reachis v2.0\Reachis v2.0\Reachis\obj\Debug\netcoreapp3.1\Razor\Views\Desktop\PlusPlanning.cshtml.g.cs

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Reachis.Models;
+using System.Threading.Tasks;
 
 namespace Reachis.Models
 {
@@ -9,8 +10,13 @@ namespace Reachis.Models
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            
+
         }
+
+        //public static ApplicationContext Create()
+        //{
+        //    return new ApplicationContext();
+        //}
         public DbSet<Planner> Planners { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<Task> Tasks { get; set; }
@@ -33,6 +39,8 @@ namespace Reachis.Models
                 .WithMany(b => b.Tasks);
 
         }
+
     }
+
 
 }

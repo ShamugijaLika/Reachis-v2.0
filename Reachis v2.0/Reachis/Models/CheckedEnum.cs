@@ -9,7 +9,7 @@ namespace Reachis.Models
     {
         BulletScheduled = 0,
         BulletComplete = 1,
-        BulletNotComplite = 2,
+        BulletNotComplete = 2,
         BulletMoved = 3
     }
 }
