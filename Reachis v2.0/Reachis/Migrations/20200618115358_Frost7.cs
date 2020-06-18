@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Reachis.Migrations
 {
-    public partial class Frog1 : Migration
+    public partial class Frost7 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -198,6 +198,69 @@ namespace Reachis.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Decomposes",
+                columns: table => new
+                {
+                    DecomposeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DecomDay = table.Column<int>(nullable: false),
+                    PlannerId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Decomposes", x => x.DecomposeId);
+                    table.ForeignKey(
+                        name: "FK_Decomposes_Planners_PlannerId",
+                        column: x => x.PlannerId,
+                        principalTable: "Planners",
+                        principalColumn: "PlannerId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Memos",
+                columns: table => new
+                {
+                    MemoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MemoText = table.Column<string>(nullable: true),
+                    MemoOfDay = table.Column<string>(nullable: true),
+                    StarOfDay = table.Column<string>(nullable: true),
+                    PlannerMemoPlannerId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Memos", x => x.MemoId);
+                    table.ForeignKey(
+                        name: "FK_Memos_Planners_PlannerMemoPlannerId",
+                        column: x => x.PlannerMemoPlannerId,
+                        principalTable: "Planners",
+                        principalColumn: "PlannerId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tabs",
+                columns: table => new
+                {
+                    TabId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    urlTab = table.Column<string>(nullable: true),
+                    PlannerId = table.Column<int>(nullable: true),
+                    checkTab = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tabs", x => x.TabId);
+                    table.ForeignKey(
+                        name: "FK_Tabs_Planners_PlannerId",
+                        column: x => x.PlannerId,
+                        principalTable: "Planners",
+                        principalColumn: "PlannerId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Tasks",
                 columns: table => new
                 {
@@ -224,6 +287,27 @@ namespace Reachis.Migrations
                         column: x => x.PlannerId,
                         principalTable: "Planners",
                         principalColumn: "PlannerId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DecomposeMemos",
+                columns: table => new
+                {
+                    DecomposeMemoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DecoMemo = table.Column<string>(nullable: true),
+                    CheckDeco = table.Column<int>(nullable: false),
+                    DecomposeDMDecomposeId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DecomposeMemos", x => x.DecomposeMemoId);
+                    table.ForeignKey(
+                        name: "FK_DecomposeMemos_Decomposes_DecomposeDMDecomposeId",
+                        column: x => x.DecomposeDMDecomposeId,
+                        principalTable: "Decomposes",
+                        principalColumn: "DecomposeId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -272,9 +356,29 @@ namespace Reachis.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DecomposeMemos_DecomposeDMDecomposeId",
+                table: "DecomposeMemos",
+                column: "DecomposeDMDecomposeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Decomposes_PlannerId",
+                table: "Decomposes",
+                column: "PlannerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Memos_PlannerMemoPlannerId",
+                table: "Memos",
+                column: "PlannerMemoPlannerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Planners_userId",
                 table: "Planners",
                 column: "userId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tabs_PlannerId",
+                table: "Tabs",
+                column: "PlannerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_AreaId",
@@ -305,10 +409,22 @@ namespace Reachis.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "DecomposeMemos");
+
+            migrationBuilder.DropTable(
+                name: "Memos");
+
+            migrationBuilder.DropTable(
+                name: "Tabs");
+
+            migrationBuilder.DropTable(
                 name: "Tasks");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Decomposes");
 
             migrationBuilder.DropTable(
                 name: "Areas");
