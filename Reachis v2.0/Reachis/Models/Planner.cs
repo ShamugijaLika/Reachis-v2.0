@@ -67,7 +67,7 @@ namespace Reachis.Models
         [Key]
         public int MemoId { get; set; }
         public string MemoText { get; set; }
-        public string MemoOfDay { get; set; }
+        public string MemoOfDay { get; set; } //дата привязки ко дню
         public string StarOfDay { get; set; }
         public Planner PlannerMemo { get; set; }
     }
@@ -80,20 +80,14 @@ namespace Reachis.Models
         DayN20 = 3,
         DayN10 = 4,
     }
+
     public class Decompose
-    {
-        [Key]
-        public int DecomposeId { get; set; }
-        public DecomDays DecomDay { get; set; }
-        public Planner planner { get; set; }
-        public ICollection<DecomposeMemo> DecomposeMemos { get; set; }  
-    }
-    public class DecomposeMemo
     {
         [Key]
         public int DecomposeMemoId { get; set; }
         public string DecoMemo { get; set; }
+        public DecomDays DecomDay { get; set; }
         public CheckedEnum CheckDeco { get; set; }
-        public Decompose DecomposeDM { get; set; }
+        public Planner planner { get; set; }
     }
 }

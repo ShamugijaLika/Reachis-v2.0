@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Reachis.Migrations
 {
-    public partial class Frost7 : Migration
+    public partial class Frost : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -201,14 +201,16 @@ namespace Reachis.Migrations
                 name: "Decomposes",
                 columns: table => new
                 {
-                    DecomposeId = table.Column<int>(nullable: false)
+                    DecomposeMemoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    DecoMemo = table.Column<string>(nullable: true),
                     DecomDay = table.Column<int>(nullable: false),
+                    CheckDeco = table.Column<int>(nullable: false),
                     PlannerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Decomposes", x => x.DecomposeId);
+                    table.PrimaryKey("PK_Decomposes", x => x.DecomposeMemoId);
                     table.ForeignKey(
                         name: "FK_Decomposes_Planners_PlannerId",
                         column: x => x.PlannerId,
@@ -290,27 +292,6 @@ namespace Reachis.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "DecomposeMemos",
-                columns: table => new
-                {
-                    DecomposeMemoId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DecoMemo = table.Column<string>(nullable: true),
-                    CheckDeco = table.Column<int>(nullable: false),
-                    DecomposeDMDecomposeId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DecomposeMemos", x => x.DecomposeMemoId);
-                    table.ForeignKey(
-                        name: "FK_DecomposeMemos_Decomposes_DecomposeDMDecomposeId",
-                        column: x => x.DecomposeDMDecomposeId,
-                        principalTable: "Decomposes",
-                        principalColumn: "DecomposeId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Areas_PlannerId",
                 table: "Areas",
@@ -354,11 +335,6 @@ namespace Reachis.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DecomposeMemos_DecomposeDMDecomposeId",
-                table: "DecomposeMemos",
-                column: "DecomposeDMDecomposeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Decomposes_PlannerId",
@@ -409,7 +385,7 @@ namespace Reachis.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "DecomposeMemos");
+                name: "Decomposes");
 
             migrationBuilder.DropTable(
                 name: "Memos");
@@ -422,9 +398,6 @@ namespace Reachis.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Decomposes");
 
             migrationBuilder.DropTable(
                 name: "Areas");

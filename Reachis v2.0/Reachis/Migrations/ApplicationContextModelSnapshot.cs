@@ -243,26 +243,6 @@ namespace Reachis.Migrations
 
             modelBuilder.Entity("Reachis.Models.Decompose", b =>
                 {
-                    b.Property<int>("DecomposeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DecomDay")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PlannerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DecomposeId");
-
-                    b.HasIndex("PlannerId");
-
-                    b.ToTable("Decomposes");
-                });
-
-            modelBuilder.Entity("Reachis.Models.DecomposeMemo", b =>
-                {
                     b.Property<int>("DecomposeMemoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
@@ -274,14 +254,17 @@ namespace Reachis.Migrations
                     b.Property<string>("DecoMemo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DecomposeDMDecomposeId")
+                    b.Property<int>("DecomDay")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PlannerId")
                         .HasColumnType("int");
 
                     b.HasKey("DecomposeMemoId");
 
-                    b.HasIndex("DecomposeDMDecomposeId");
+                    b.HasIndex("PlannerId");
 
-                    b.ToTable("DecomposeMemos");
+                    b.ToTable("Decomposes");
                 });
 
             modelBuilder.Entity("Reachis.Models.Memo", b =>
@@ -459,13 +442,6 @@ namespace Reachis.Migrations
                     b.HasOne("Reachis.Models.Planner", "planner")
                         .WithMany("Decomposes")
                         .HasForeignKey("PlannerId");
-                });
-
-            modelBuilder.Entity("Reachis.Models.DecomposeMemo", b =>
-                {
-                    b.HasOne("Reachis.Models.Decompose", "DecomposeDM")
-                        .WithMany("DecomposeMemos")
-                        .HasForeignKey("DecomposeDMDecomposeId");
                 });
 
             modelBuilder.Entity("Reachis.Models.Memo", b =>

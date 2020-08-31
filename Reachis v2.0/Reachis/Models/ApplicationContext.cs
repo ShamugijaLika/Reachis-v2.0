@@ -19,12 +19,11 @@ namespace Reachis.Models
         public DbSet<Tab> Tabs { get; set; }
         public DbSet<Decompose> Decomposes { get; set; }
         public DbSet<Memo> Memos { get; set; }
-        public DbSet<DecomposeMemo> DecomposeMemos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            //Отношения между моделями в Fluent API - one to many
+            // На первом этапе разработки здесь строились отношения между моделями в Fluent API - one to many
             //builder.Entity<Planner>()
             //   .HasOne(p => p.user)
             //   .WithMany(b => b.Planners);

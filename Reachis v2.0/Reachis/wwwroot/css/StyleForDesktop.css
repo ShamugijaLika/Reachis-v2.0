@@ -180,3 +180,25 @@
     left: 554.32px;
     top: 224px;
 }
+
+.linkPlanner {
+}
+
+    :active, :hover, :focus {
+        outline: 0;
+        outline-offset: 0;
+    }
+
+
+.OpenThisPlanner {
+    position: relative;
+    background-image: url(../img/PlannerBook.svg)
+}
+h4 {
+    
+    left: 15px;
+    top: 168px;
+    width: 159.28px;
+    height: 192.44px;
+    text-align: center;
+}

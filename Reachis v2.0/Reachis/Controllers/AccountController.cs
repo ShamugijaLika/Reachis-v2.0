@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Reachis.Models;
-using Taskq = System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+
 
 namespace Reachis.Controllers
 {
+    public class AuthUser
+    {
+        public static ApplicationUser UserAuth { get; set; }
+
+    }
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -33,6 +33,7 @@ namespace Reachis.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -72,6 +73,7 @@ namespace Reachis.Controllers
                 var result = await signInManager.PasswordSignInAsync(_MyUser.UserName, model.Password, model.RememberMe,false);
                 if (result.Succeeded)
                 {
+                    AuthUser.UserAuth = _MyUser;
                     return RedirectToAction("Plannings", "Desktop");
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
