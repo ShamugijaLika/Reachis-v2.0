@@ -241,6 +241,58 @@ namespace Reachis.Migrations
                     b.ToTable("Areas");
                 });
 
+            modelBuilder.Entity("Reachis.Models.Decompose", b =>
+                {
+                    b.Property<int>("DecomposeMemoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CheckDeco")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DecoMemo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DecomDay")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PlannerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DecomposeMemoId");
+
+                    b.HasIndex("PlannerId");
+
+                    b.ToTable("Decomposes");
+                });
+
+            modelBuilder.Entity("Reachis.Models.Memo", b =>
+                {
+                    b.Property<int>("MemoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MemoOfDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemoText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PlannerMemoPlannerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StarOfDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MemoId");
+
+                    b.HasIndex("PlannerMemoPlannerId");
+
+                    b.ToTable("Memos");
+                });
+
             modelBuilder.Entity("Reachis.Models.Planner", b =>
                 {
                     b.Property<int>("PlannerId")
@@ -268,6 +320,29 @@ namespace Reachis.Migrations
                     b.HasIndex("userId");
 
                     b.ToTable("Planners");
+                });
+
+            modelBuilder.Entity("Reachis.Models.Tab", b =>
+                {
+                    b.Property<int>("TabId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("PlannerId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("checkTab")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("urlTab")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TabId");
+
+                    b.HasIndex("PlannerId");
+
+                    b.ToTable("Tabs");
                 });
 
             modelBuilder.Entity("Reachis.Models.Task", b =>
@@ -362,11 +437,32 @@ namespace Reachis.Migrations
                         .HasForeignKey("PlannerId");
                 });
 
+            modelBuilder.Entity("Reachis.Models.Decompose", b =>
+                {
+                    b.HasOne("Reachis.Models.Planner", "planner")
+                        .WithMany("Decomposes")
+                        .HasForeignKey("PlannerId");
+                });
+
+            modelBuilder.Entity("Reachis.Models.Memo", b =>
+                {
+                    b.HasOne("Reachis.Models.Planner", "PlannerMemo")
+                        .WithMany("Memos")
+                        .HasForeignKey("PlannerMemoPlannerId");
+                });
+
             modelBuilder.Entity("Reachis.Models.Planner", b =>
                 {
                     b.HasOne("Reachis.Models.ApplicationUser", "user")
                         .WithMany("Planners")
                         .HasForeignKey("userId");
+                });
+
+            modelBuilder.Entity("Reachis.Models.Tab", b =>
+                {
+                    b.HasOne("Reachis.Models.Planner", "planner")
+                        .WithMany("Tabs")
+                        .HasForeignKey("PlannerId");
                 });
 
             modelBuilder.Entity("Reachis.Models.Task", b =>

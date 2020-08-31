@@ -13,9 +13,9 @@ namespace Reachis.Models
 
         [Required]
         [DataType(DataType.DateTime)]
-        public string Startday { get; set; }
+        public DateTime Startday { get; set; }
         [Required]
         [DataType(DataType.DateTime)]
-        public string Endday { get; set; }
+        public DateTime Endday { get; set; }
     }
 }

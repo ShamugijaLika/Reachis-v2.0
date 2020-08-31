@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Reachis.Models;
+using Reachis.Models.Repository;
 
 namespace Reachis
 {
@@ -20,6 +21,9 @@ namespace Reachis
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvcCore(); //17 videos
+            services.AddRazorPages();
+            //services.AddSingleton<IPlannerRepository, PlannerRepository>();
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -27,7 +31,7 @@ namespace Reachis
                 .AddEntityFrameworkStores<ApplicationContext>();
 
             services.AddControllersWithViews();
-            //services.AddSingleton<IPlannerRepository, MockPlannerRepository>();
+            //services.AddSingleton<IPlannerRepository, PlannerRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
